@@ -1,49 +1,8 @@
-/*.navbar-search-group {
-	padding-right: 15px;
-	}*/
-
-/*.navbar-form .input-group-btn,
-.navbar-form .input-group-addon {
-width: auto;
-}*/
-
-/*@media (max-width: 767px) {
-	.navbar-form .form-control {
-		display: inline-block;
-		width: auto;
-		vertical-align: middle;
-        
-    position: relative;
-    padding: 9px 10px;
-    margin-top: 4px;
-    margin-right: 15px;
-    margin-bottom: 8px;
-        
-        height: calc	
-        -webkit-transition: prop time;
-        -o-transition: prop time;
-        transition: prop time;
-        
-	}
-	.btn-simple-search {
-		border-top-right-radius: 4px !important;
-		border-bottom-right-radius: 4px !important; 
-	}
-}
-*/
-
 @media (max-width: 767px) {
 	.form-control {
         display: inline-block;
         width: calc(100% - 220px);
         margin-top: 0px;
-/*
-		vertical-align: middle;
-        position: relative;
-        padding: 9px 10px;
-        margin-right: 15px;
-        margin-bottom: 8px;
-*/
 	}
     .navbar-form {
         border-width: 0px;
