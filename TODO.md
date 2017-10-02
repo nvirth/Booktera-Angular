@@ -1,0 +1,4 @@
+BookTera TODO
+=============
+
+* Localization
