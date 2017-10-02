@@ -1,22 +1,26 @@
+.navbar {
+  margin-bottom: 0px;
+}
+
 @media (max-width: 767px) {
-    .form-control {
-        display: inline-block;
-        width: calc(100% - 220px);
-        margin-top: 0px;
-    }
-    .navbar-form {
-        border-width: 0px;
-        margin-top: -3px;
-    }
-    
-    /* Copied/merged from bs3:
-    .dropdown-menu .divider
-    .navbar-inverse .navbar-nav .open .dropdown-menu .divider
-    */
-    .divider-xs {
-      height: 1px;
-      margin: 9px 0;
-      overflow: hidden;
-      background-color: #e5e5e5;
+  .form-control {
+    display: inline-block;
+    width: calc(100% - 220px);
+    margin-top: 0px;
+  }
+  .navbar-form {
+    border-width: 0px;
+    margin-top: -3px;
+  }
+
+  /* Copied/merged from bs3:
+  .dropdown-menu .divider
+  .navbar-inverse .navbar-nav .open .dropdown-menu .divider
+  */
+  .divider-xs {
+    height: 1px;
+    margin: 9px 0;
+    overflow: hidden;
+    background-color: #e5e5e5;
   }
 }
