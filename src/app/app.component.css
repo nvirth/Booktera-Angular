@@ -10,11 +10,6 @@
   min-height: 200px;
 }
 
-/*
-#83BABA
-#D3D6CB
-*/
-
 @media (max-width: 767px) {
   .section-content {
     margin-top: -20px;

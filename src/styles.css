@@ -2,7 +2,11 @@
 
 /*============================
   columns of same height styles
-  =============================*/
+  =============================
+
+  From:
+  https://stackoverflow.com/questions/19695784/how-can-i-make-bootstrap-columns-all-the-same-height
+*/
 .row-eq-height [class*="col-"]{
   margin-bottom: -99999px;
   padding-bottom: 99999px;
@@ -11,69 +15,3 @@
 .row-eq-height {
   overflow: hidden;
 }
-
-
-
-/*============================
-  columns of same height styles
-  =============================*/
-
-/* The following code is used to create same-sized columns
-   in a multi-column layout.
-   Code from:
-   http://www.minimit.com/articles/solutions-tutorials/bootstrap-3-responsive-columns-of-same-height
-*/
-/*.container-xs-height {
-  display:table;
-  padding-left:0px;
-  padding-right:0px;
-}
-.row-xs-height {
-  display:table-row;
-}
-.col-xs-height {
-  display:table-cell;
-  float:none;
-}
-@media (min-width: 768px) {
-  .container-sm-height {
-    display:table;
-    padding-left:0px;
-    padding-right:0px;
-  }
-  .row-sm-height {
-    display:table-row;
-  }
-  .col-sm-height {
-    display:table-cell;
-    float:none;
-  }
-}
-@media (min-width: 992px) {
-  .container-md-height {
-    display:table;
-    padding-left:0px;
-    padding-right:0px;
-  }
-  .row-md-height {
-    display:table-row;
-  }
-  .col-md-height {
-    display:table-cell;
-    float:none;
-  }
-}
-@media (min-width: 1200px) {
-  .container-lg-height {
-    display:table;
-    padding-left:0px;
-    padding-right:0px;
-  }
-  .row-lg-height {
-    display:table-row;
-  }
-  .col-lg-height {
-    display:table-cell;
-    float:none;
-  }
-}*/
