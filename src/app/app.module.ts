@@ -1,9 +1,9 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from "@angular/forms";
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {FormsModule} from "@angular/forms";
+import {NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
+import {AppComponent} from './app.component';
+import {HeaderComponent} from './header/header.component';
 import {HttpClientModule} from "@angular/common/http";
 import {CategoryManagerService} from "./manager-services/category-manager.service";
 
@@ -20,4 +20,5 @@ import {CategoryManagerService} from "./manager-services/category-manager.servic
   providers: [CategoryManagerService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

@@ -26,7 +26,6 @@ export class CategoryManagerService {
       })))
       .do(x => console.log("After:\n" + JSON.stringify(x)))
       .catch(this.handleHttpError);
-    ;
   }
 
   protected handleHttpError(error: HttpErrorResponse): any {
