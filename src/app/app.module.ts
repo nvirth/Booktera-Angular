@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
+import {HttpClientModule} from "@angular/common/http";
+import {CategoryManagerService} from "./manager-services/category-manager.service";
 
 @NgModule({
   declarations: [
@@ -12,9 +14,10 @@ import { HeaderComponent } from './header/header.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [CategoryManagerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
