@@ -6,7 +6,9 @@ import 'rxjs/add/operator/do'
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/catch'
 import 'rxjs/add/observable/throw'
-
+import * as _ from "lodash";
+import {List} from "linq-collections";
+// import Seq = _.LoDashExplicitArrayWrapper;
 
 @Injectable()
 export class CategoryManagerService {
@@ -21,12 +23,62 @@ export class CategoryManagerService {
   public getAllSorted(): Observable<ICategory[]> {
     return this._httpClient.get<ICategoryData[]>(CategoryManagerService._urls.getAllSortedJsonUrl)
       .do(x => console.log("Before:\n" + JSON.stringify(x)))
-      .map(categories => categories.map(category => <ICategory>({
-        name: category.Text
-      })))
+      .map(this._mapCategoryList)
       .do(x => console.log("After:\n" + JSON.stringify(x)))
       .catch(this.handleHttpError);
   }
+
+  private _mapCategoryList = (rawCategories: ICategoryData[]): ICategory[] => {
+    let categories = rawCategories
+      .filter(c => c.Value)
+      .map(c => {
+        // let separatorIndex = c.Text.lastIndexOf(" - ") + 1;
+        // let parentFullName = c.Text.substring(0, separatorIndex);
+        // let categoryName = c.Text.substring(separatorIndex, c.Text.length);
+
+        let id = parseInt(c.Value) || -1;
+        let split = c.Text.split(" - ").map(str => str.trim());
+        let level = split.length;
+        let categoryName = _.last(split);
+        let parentFullName = level <= 1 ? null : _.take(split, split.length - 1).join(" - ");
+
+        let category = <ICategory>{
+          fullName: c.Text,
+          id: id,
+          level: level,
+          name: categoryName,
+          parent: undefined,
+          parentFullName: parentFullName,
+        };
+        return category;
+      });
+
+    // categories = _.chain(categories);
+
+    let categoryList = new List<ICategory>(categories);
+    for (let c of categories) {
+      c.parent = this._getParent(c, categoryList);
+    }
+
+    return categories;
+    // return result;
+  };
+
+  // private getParent(category: ICategory, allCategories: Seq<ICategory>): ICategory {
+  //   allCategories.
+  // }
+
+  private _getParent = (category: ICategory, allCategories: List<ICategory>): ICategory => {
+    let parentFullName = (<any>category).parentFullName;
+    if (!parentFullName)
+      return null;
+
+    try {
+      return allCategories.first(c => c.fullName === parentFullName);
+    } catch (e) {
+      throw e;
+    }
+  };
 
   protected handleHttpError(error: HttpErrorResponse): any {
     console.log(error);
@@ -43,4 +95,8 @@ interface ICategoryData {
 
 export interface ICategory {
   name: string;
+  fullName: string;
+  id: number;
+  parent: ICategory;
+  level: number;
 }
