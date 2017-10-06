@@ -6,11 +6,13 @@ import {AppComponent} from './app.component';
 import {HeaderComponent} from './header/header.component';
 import {HttpClientModule} from "@angular/common/http";
 import {CategoryManagerService} from "./manager-services/category-manager.service";
+import {CategorySelectorComponent} from './category-selector/category-selector.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    CategorySelectorComponent
   ],
   imports: [
     BrowserModule,
