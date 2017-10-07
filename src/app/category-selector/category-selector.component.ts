@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ICategory, CategoryManagerService} from "../manager-services/category-manager.service";
+import {ICategory, CategoryManagerService, ITreeNode} from "../manager-services/category-manager.service";
 
 @Component({
   selector: 'app-category-selector',
@@ -8,13 +8,17 @@ import {ICategory, CategoryManagerService} from "../manager-services/category-ma
 })
 export class CategorySelectorComponent implements OnInit {
   categories: ICategory[] = [];
+  categoryTree: ITreeNode<ICategory>;
 
   constructor(private _categoryManagerService: CategoryManagerService) {
   }
 
   ngOnInit(): void {
     this._categoryManagerService.getAllSorted()
-      .subscribe(categories => this.categories = categories, error => console.log(error));
+      .subscribe(
+        categoryTree => this.categoryTree = categoryTree,
+        error => console.log(error)
+      );
   }
 
 }

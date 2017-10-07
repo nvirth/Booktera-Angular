@@ -7,12 +7,14 @@ import {HeaderComponent} from './header/header.component';
 import {HttpClientModule} from "@angular/common/http";
 import {CategoryManagerService} from "./manager-services/category-manager.service";
 import {CategorySelectorComponent} from './category-selector/category-selector.component';
+import {TreeNodeComponent} from './category-selector/tree-node/tree-node.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    CategorySelectorComponent
+    CategorySelectorComponent,
+    TreeNodeComponent
   ],
   imports: [
     BrowserModule,
