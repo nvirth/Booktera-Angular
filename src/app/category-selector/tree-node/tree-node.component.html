@@ -1,3 +1,17 @@
-<p>
-  tree-node works!
-</p>
+<ul *ngIf="categoryNode && categoryNode.children && categoryNode.children.any()">
+  <!--[class.navbar-nav]="!categoryNode.parent"-->
+  <!--[class.navbar-sidenav]="!categoryNode.parent"-->
+  <li *ngFor="let childCategoryNode of categoryNode.children.asArray()"
+      [class.leaf-category]="!childCategoryNode.children || !childCategoryNode.children.any()"
+  >
+    <a href="#">
+      <div class="category-item category-level-{{childCategoryNode.node.level}}">
+        {{childCategoryNode.node.name}} ({{childCategoryNode.node.level}})
+      </div>
+    </a>
+    <app-tree-node [categoryNode]="childCategoryNode"
+                   *ngIf="childCategoryNode.children"
+    >
+    </app-tree-node>
+  </li>
+</ul>

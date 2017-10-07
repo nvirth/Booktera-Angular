@@ -4,6 +4,8 @@
 .aside-left {
   background-color: #E6DADA;
   min-height: 200px;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 .aside-right {
   background-color: #E6DADA;

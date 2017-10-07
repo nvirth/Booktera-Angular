@@ -1,0 +1,19 @@
+:host ::ng-deep li {
+  list-style-type: none;
+
+  /* --- */
+  text-overflow: ellipsis; /* This one is the goal */
+  white-space: nowrap; /* This one is not mandatory */
+  overflow: hidden; /* Without this one, text-overflow won't work */
+  /* --- */
+
+  display: block;
+  line-height: 50px;
+}
+/*:host ::ng-deep li:hover {*/
+/*}*/
+
+/*:host ::ng-deep .leaf-category:hover {*/
+  /*background-color: #D3D6CB;*/
+/*}*/
+

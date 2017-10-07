@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-/*============================
+/*=============================
   columns of same height styles
   =============================
 
@@ -14,4 +14,9 @@
 
 .row-eq-height {
   overflow: hidden;
+}
+/*=============================*/
+
+[class^="col-"], [class*=" col-"] {
+  transition: 0.3s ease-in-out;
 }

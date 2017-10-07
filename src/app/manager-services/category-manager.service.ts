@@ -22,9 +22,9 @@ export class CategoryManagerService {
 
   public getAllSorted(): Observable<ITreeNode<ICategory>> {
     return this._httpClient.get<ICategoryData[]>(CategoryManagerService._urls.getAllSortedJsonUrl)
-      .do(x => console.log("Before:\n" + JSON.stringify(x)))
+      // .do(x => console.log("Before:\n" + JSON.stringify(x)))
       .map(this._mapCategoryList)
-      .do(x => console.log("After:\n" + Utils.local.jsonStringifySafe(x)))
+      // .do(x => console.log("After:\n" + Utils.local.jsonStringifySafe(x)))
       .catch(this.handleHttpError);
   }
 

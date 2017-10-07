@@ -1,0 +1,41 @@
+a {
+  text-decoration: none;
+}
+ul {
+  padding: 0px;
+}
+.category-item:hover {
+  background-color: #D3D6CB;
+}
+
+/* Category level paddings */
+.category-level-1 {
+  padding-left: 15px;
+}
+.category-level-2 {
+  padding-left: 30px;
+}
+.category-level-3 {
+  padding-left: 45px;
+}
+.category-level-4 {
+  padding-left: 60px;
+}
+.category-level-5 {
+  padding-left: 75px;
+}
+.category-level-6 {
+  padding-left: 90px;
+}
+.category-level-7 {
+  padding-left: 105px;
+}
+.category-level-8 {
+  padding-left: 120px;
+}
+.category-level-9 {
+  padding-left: 135px;
+}
+.category-level-10 {
+  padding-left: 150px;
+}

@@ -1,20 +1,25 @@
-<ul *ngIf="categoryTree" >
-  <li *ngFor="let category of categoryTree.children.asArray()" >
-    {{category.node.name}}
-  </li>
-</ul>
+<app-tree-node [categoryNode]="categoryTree"></app-tree-node>
 
-<ul *ngIf="categoryTree" >
-  <ng-template #categoryTreeRecursive let-list>
-    <li *ngFor="let category of categoryTree.children.asArray()">
-      {{category.node.name}}
-      <ul *ngIf="category.children">
-        <ng-container *ngTemplateOutlet="categoryTreeRecursive; context:{ $implicit: category.children.asArray() }"></ng-container>
-      </ul>
-    </li>
-  </ng-template>
-  <ng-container *ngTemplateOutlet="categoryTreeRecursive; context:{ $implicit: categoryTree.children.asArray() }"></ng-container>
-</ul>
+<!--class="navbar-nav navbar-sidenav"-->
+
+
+<!--<ul *ngIf="categoryTree" >-->
+  <!--<li *ngFor="let category of categoryTree.children.asArray()" >-->
+    <!--{{category.node.name}}-->
+  <!--</li>-->
+<!--</ul>-->
+
+<!--<ul *ngIf="categoryTree" >-->
+  <!--<ng-template #categoryTreeRecursive let-list>-->
+    <!--<li *ngFor="let category of categoryTree.children.asArray()">-->
+      <!--{{category.node.name}}-->
+      <!--<ul *ngIf="category.children">-->
+        <!--<ng-container *ngTemplateOutlet="categoryTreeRecursive; context:{ $implicit: category.children.asArray() }"></ng-container>-->
+      <!--</ul>-->
+    <!--</li>-->
+  <!--</ng-template>-->
+  <!--<ng-container *ngTemplateOutlet="categoryTreeRecursive; context:{ $implicit: categoryTree.children.asArray() }"></ng-container>-->
+<!--</ul>-->
 
 <p>
   category-selector works!
