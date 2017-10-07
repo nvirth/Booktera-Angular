@@ -8,7 +8,7 @@ import 'rxjs/add/operator/catch'
 import 'rxjs/add/observable/throw'
 import * as _ from "lodash";
 import {List} from "linq-collections";
-import {Utils} from "../shared/utils/utils";
+import {ITreeNode} from "../shared/utils/tree-node";
 
 @Injectable()
 export class CategoryManagerService {
@@ -22,9 +22,7 @@ export class CategoryManagerService {
 
   public getAllSorted(): Observable<ITreeNode<ICategory>> {
     return this._httpClient.get<ICategoryData[]>(CategoryManagerService._urls.getAllSortedJsonUrl)
-      // .do(x => console.log("Before:\n" + JSON.stringify(x)))
       .map(this._mapCategoryList)
-      // .do(x => console.log("After:\n" + Utils.local.jsonStringifySafe(x)))
       .catch(this.handleHttpError);
   }
 
@@ -99,7 +97,6 @@ export class CategoryManagerService {
       CategoryManagerService._constructCategoryTreeImpl(node, categories);
     })
   }
-
   //#endregion
 
   protected handleHttpError(error: HttpErrorResponse): any {
@@ -121,10 +118,4 @@ export interface ICategory {
   id: number;
   parent: ICategory;
   level: number;
-}
-
-export interface ITreeNode<T> {
-  node: T,
-  parent: ITreeNode<T>,
-  children: List<ITreeNode<T>>,
 }

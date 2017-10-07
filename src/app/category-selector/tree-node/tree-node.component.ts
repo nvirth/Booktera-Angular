@@ -1,5 +1,6 @@
 import {Component, OnInit, Input} from '@angular/core';
-import {ITreeNode, ICategory} from "../../manager-services/category-manager.service";
+import {ICategory} from "../../manager-services/category-manager.service";
+import {ITreeNode} from "../../shared/utils/tree-node";
 
 @Component({
   selector: 'app-tree-node',

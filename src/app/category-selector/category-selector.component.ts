@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {ICategory, CategoryManagerService, ITreeNode} from "../manager-services/category-manager.service";
+import {ICategory, CategoryManagerService} from "../manager-services/category-manager.service";
+import {ITreeNode} from "../shared/utils/tree-node";
 
 @Component({
   selector: 'app-category-selector',
@@ -7,7 +8,6 @@ import {ICategory, CategoryManagerService, ITreeNode} from "../manager-services/
   styleUrls: ['./category-selector.component.css']
 })
 export class CategorySelectorComponent implements OnInit {
-  categories: ICategory[] = [];
   categoryTree: ITreeNode<ICategory>;
 
   constructor(private _categoryManagerService: CategoryManagerService) {
