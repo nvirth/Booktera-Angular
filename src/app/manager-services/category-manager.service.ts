@@ -8,7 +8,6 @@ import 'rxjs/add/operator/catch'
 import 'rxjs/add/observable/throw'
 import * as _ from "lodash";
 import {List} from "linq-collections";
-// import Seq = _.LoDashExplicitArrayWrapper;
 
 @Injectable()
 export class CategoryManagerService {
@@ -32,10 +31,6 @@ export class CategoryManagerService {
     let categories = rawCategories
       .filter(c => c.Value)
       .map(c => {
-        // let separatorIndex = c.Text.lastIndexOf(" - ") + 1;
-        // let parentFullName = c.Text.substring(0, separatorIndex);
-        // let categoryName = c.Text.substring(separatorIndex, c.Text.length);
-
         let id = parseInt(c.Value) || -1;
         let split = c.Text.split(" - ").map(str => str.trim());
         let level = split.length;
@@ -53,20 +48,13 @@ export class CategoryManagerService {
         return category;
       });
 
-    // categories = _.chain(categories);
-
     let categoryList = new List<ICategory>(categories);
     for (let c of categories) {
       c.parent = this._getParent(c, categoryList);
     }
 
     return categories;
-    // return result;
   };
-
-  // private getParent(category: ICategory, allCategories: Seq<ICategory>): ICategory {
-  //   allCategories.
-  // }
 
   private _getParent = (category: ICategory, allCategories: List<ICategory>): ICategory => {
     let parentFullName = (<any>category).parentFullName;
