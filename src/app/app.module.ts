@@ -7,6 +7,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {CategoryManagerService} from "./manager-services/category-manager.service";
 import {CategorySelectorComponent} from './category-selector/category-selector.component';
 import {TreeNodeComponent} from './category-selector/tree-node/tree-node.component';
+import {RouterModule, PreloadAllModules} from "@angular/router";
+import {Routes} from './app.routes';
 import {NoContentComponent} from './no-content/no-content.component';
 
 @NgModule({
@@ -20,7 +22,11 @@ import {NoContentComponent} from './no-content/no-content.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(Routes, {
+      useHash: Boolean(history.pushState) === false,
+      preloadingStrategy: PreloadAllModules
+    }),
   ],
   providers: [CategoryManagerService],
   bootstrap: [AppComponent]
