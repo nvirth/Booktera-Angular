@@ -1,4 +1,4 @@
-<ul *ngIf="categoryNode && categoryNode.children && categoryNode.children.any()">
+<ul *ngIf="categoryNode?.children?.any()">
   <li *ngFor="let childCategoryNode of categoryNode.children.asArray()"
       [class.leaf-category]="!childCategoryNode.children || !childCategoryNode.children.any()"
   >
